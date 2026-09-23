@@ -551,8 +551,7 @@ function hitTile(tile) {
     tile.dataset.hit = '1';
 
     const lane = parseInt(tile.dataset.lane);
-    playPianoNote(lane);
-
+// playPianoNote(lane);  // Piano သံ ပိတ်ထားတယ်
     tile.classList.add('hit');
 
     const tileRect = tile.getBoundingClientRect();
@@ -687,7 +686,7 @@ function startGame() {
 
     if (bgMusic) {
         bgMusic.currentTime = 0;
-        bgMusic.volume = 0.4;
+        bgMusic.volume = 1.0;
         bgMusic.play().catch(e => console.log('Music file not found or blocked'));
     }
 
