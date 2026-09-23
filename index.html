@@ -410,31 +410,10 @@ function initAudio() {
     if (audioCtx.state === 'suspended') audioCtx.resume();
 }
 
-function playPianoNote(lane) {
-    if (!audioCtx) return;
-    const freq = LANE_FREQS[lane];
-    const now = audioCtx.currentTime;
-
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-    osc.type = 'sine';
-    osc.frequency.value = freq;
-    gain.gain.setValueAtTime(0, now);
-    gain.gain.linearRampToValueAtTime(0.35, now + 0.01);
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.7);
-    osc.connect(gain); gain.connect(audioCtx.destination);
-    osc.start(now); osc.stop(now + 0.7);
-
-    const osc2 = audioCtx.createOscillator();
-    const gain2 = audioCtx.createGain();
-    osc2.type = 'triangle';
-    osc2.frequency.value = freq * 2;
-    gain2.gain.setValueAtTime(0, now);
-    gain2.gain.linearRampToValueAtTime(0.12, now + 0.01);
-    gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
-    osc2.connect(gain2); gain2.connect(audioCtx.destination);
-    osc2.start(now); osc2.stop(now + 0.4);
-}
+ function playPianoNote(lane) {
+    // Piano သံ ပိတ်ထားတယ် (သီချင်းပဲ ထွက်စေရန်)
+    return;
+ }
 
 function playMissSound() {
     if (!audioCtx) return;
